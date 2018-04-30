@@ -4,12 +4,12 @@ mqm:
     - "15672:15672"
     - "5672:5672"
 consumer:
-  image: "rabbitmq-test:latest"
+  image: "tomfan/rabbitmq-test:latest"
   command: /bin/bash -c "sleep 10 && node main consumer"
   links:
         - mqm
 producer:
-  image: "rabbitmq-test:latest"
+  image: "tomfan/rabbitmq-test:latest"
   command: /bin/bash -c "sleep 10 && node main producer"
   links:
         - mqm
