@@ -6,10 +6,14 @@ mqm:
 consumer:
   image: "tomfan/rabbitmq-test:latest"
   command: /bin/bash -c "sleep 10 && node main consumer"
+  env_file:
+        - rabbitmq-test.env
   links:
         - mqm
 producer:
   image: "tomfan/rabbitmq-test:latest"
   command: /bin/bash -c "sleep 10 && node main producer"
+  env_file:
+        - rabbitmq-test.env
   links:
         - mqm
